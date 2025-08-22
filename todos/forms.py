@@ -1,16 +1,12 @@
 from django import forms
-from .models import Todo
+from .models import Todo, Category
 
 class TodoForm(forms.ModelForm):
+    due_date = forms.DateField(
+        required=False,
+        widget=forms.DateInput(attrs={'type': 'date'})
+    )
+
     class Meta:
         model = Todo
-        fields = ['title']
-        labels = {'title': ''}
-        widgets = {
-            'title': forms.TextInput(
-                attrs={
-                    'class': 'form-control form-control-lg',
-                    'placeholder': 'What needs to be done?'
-                }
-            )
-        }
+        fields = ['title', 'description', 'due_date', 'priority', 'category']

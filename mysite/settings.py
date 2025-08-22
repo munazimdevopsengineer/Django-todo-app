@@ -76,3 +76,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'todo_list'
+LOGOUT_REDIRECT_URL = 'login'
+
+SESSION_COOKIE_AGE = 60*60*24*30  # 30 days
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
